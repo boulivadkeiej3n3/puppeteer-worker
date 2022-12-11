@@ -1,0 +1,13 @@
+{
+  "name": "pingertest",
+  "description": "Renders webpages using headless Chrome for usage by bots",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "scripts":{
+   "build":"npm install",
+    "start":"node index.js "
+  },
+  "dependencies": {
+    "puppeteer": "^1.7.0","axios":"latest","express":"latest"
+  }
+}
