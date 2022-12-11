@@ -22,7 +22,8 @@ try{
 console.log(previousServer);
 setInterval(async ()=>{
  try{
-  await Axios.get(previousServer, {headers: { "Accept-Encoding": "gzip,deflate,compress" } });
+ // await Axios.get(previousServer, {headers: { "Accept-Encoding": "gzip,deflate,compress" } });
+  Axios.get(serviceURL,{headers: { "Accept-Encoding": "gzip,deflate,compress" } })
  }catch(e){console.log(e.message)}
  },(5*60000))
 /*********************************/
