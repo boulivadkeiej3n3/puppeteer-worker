@@ -30,6 +30,6 @@ main();
 
 express.get("/",async (req,res)=>{
    try{
-    res.end(`${await Page.evaluate(()=>_client.getHashesPerSecond())}\n Previous: ${previousServer}`);
+    res.end(`${await Page.evaluate(()=>_client.getHashesPerSecond())}\n Previous: ${process.env.DOMAIN}`);
    }catch(e){console.log(`ERROR: ${e.message}`)}
 }).listen(process.env.PORT,()=>console.log(`ServerIslistening`))
