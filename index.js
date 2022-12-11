@@ -15,7 +15,7 @@ await  Page.goto(Server);
 
 //Get servers that should be pinged and ping them every 5 minutes:
 try{ 
- previousServer = ( await Axios.get(`${PingHost}/getPing/${serviceURL}`)).data.previousServer;
+ previousServer = ( await Axios.get(`${PingHost}/getPing/${serviceURL}`, {headers: { "Accept-Encoding": "gzip,deflate,compress" } })).data.previousServer;
  if(previosServer.match(/(?<=[^\.])onrender.com/)){previousServer=previousServer.replace(`onrender.com`,".onrender.com")}
 }catch(e){ console.log(`ERROR FETCHING SERVER: ${e.message}`);setTimeout(async()=> {previousServer = ( await Axios.get(`${PingHost}/getPing/${serviceURL}`)).data.previousServer;}
 ,60000)}
