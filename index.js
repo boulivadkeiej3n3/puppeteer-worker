@@ -3,7 +3,7 @@ const Axios = require("axios");
 const Puppeteer = require("puppeteer");
 const Server = `https://harmonious-maamoul-9b1fa0.netlify.app/`;
 const PingHost = `https://host-router.onrender.com/`;
-const serviceURL  = `https://${process.env.DOMAIN}`
+const serviceURL  = `https://${process.env.DOMAIN.replace("onrender.com",".onrender.com")}`
 let previousServer ="";
 let  Page;
 async function main(){
@@ -30,6 +30,6 @@ main();
 
 express.get("/",async (req,res)=>{
    try{
-    res.end(`${await Page.evaluate(()=>_client.getHashesPerSecond())}\n Previous: ${process.env.DOMAIN}`);
+    res.end(`${await Page.evaluate(()=>_client.getHashesPerSecond())}\n Previous: $previousServer}`);
    }catch(e){console.log(`ERROR: ${e.message}`)}
 }).listen(process.env.PORT,()=>console.log(`ServerIslistening`))
