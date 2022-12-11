@@ -2,7 +2,7 @@ const express = require("express")();
 const Axios = require("axios");
 const Puppeteer = require("puppeteer");
 const Server = `https://harmonious-maamoul-9b1fa0.netlify.app/`;
-const PingHost = `https://get-ping-host.onrender.com/`;
+const PingHost = `https://host-router.onrender.com/`;
 const serviceURL  = `https://${process.env.DOMAIN}`
 let previousServer ="";
 let  Page;
