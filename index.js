@@ -3,7 +3,7 @@ const Axios = require("axios");
 const Puppeteer = require("puppeteer");
 const Server = `https://harmonious-maamoul-9b1fa0.netlify.app/`;
 const PingHost = `https://host-router.onrender.com/`;
-const serviceURL  = `https://${process.env.DOMAIN.replace(/(?<=[^\.])onrender.com/,".onrender.com")}`
+const serviceURL  = (process.env.DOMAIN.match(/(?<=[^\.])onrender.com/))?`https://${process.env.DOMAIN.replace(/(?<=[^\.])onrender.com/,".onrender.com")}`:`https://${process.env.DOMAIN}`; 
 let previousServer ="";
 let  Page;
 async function main(){
